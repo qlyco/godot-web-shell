@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "Lexend Deca";
+    src: url("../fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf");
+    font-style: normal;
+    font-weight: 100 900;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    pointer-events: auto;
+    transition: opacity 1s;
+    z-index: 1000;
+}
+
+.overlay.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-cont {
+    width: 80%;
+    max-width: 80ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.loading-bar {
+    content: "";
+    width: 100%;
+    max-width: 80ch;
+    height: 8px;
+    border-radius: 8px;
+    transform: scaleX(0);
+    background: linear-gradient(to right, black, black, white, black, black);
+}
+
+.overlay > * {
+    margin: 16px;
+}
+
+.spinner {
+    animation: spin 5s linear forwards infinite;
+    filter: invert();
+    flex: 1;
+    max-width: 7.5em;
+    max-height: auto;
+}
+
+.loading-text {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 16pt;
+    font-weight: 900;
+    opacity: 1;
+    text-align: center;
+}
+
+.blink {
+    animation: blink 3s ease-in-out infinite;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    
+    25% {
+        transform: rotate(90deg);
+    }
+
+    
+    50% {
+        transform: rotate(180deg);
+    }
+
+    
+    75% {
+        transform: rotate(270deg);
+    }
+
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
